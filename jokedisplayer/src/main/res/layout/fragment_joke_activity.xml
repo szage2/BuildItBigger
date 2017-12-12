@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:padding="18dp"
+    tools:context="com.example.jokedisplayer.JokeActivityFragment">
+
+    <TextView
+        android:id="@+id/joke_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/joke_text" />
+
+</LinearLayout>
