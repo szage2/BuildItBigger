@@ -6,20 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.jokedisplayer.JokeActivity;
-import com.example.jokesource.MyJokes;
+
+import java.util.concurrent.ExecutionException;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,15 +42,24 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
+    public void tellJoke(View view) throws ExecutionException, InterruptedException {
+
+        // Retrieve jokes
+        String jokeString;
+        jokeString = new EndpointsAsyncTask().execute(this).get();
+        // In case we have joke
+        if (jokeString != null) {
+            // launch Joke Activity
+            startJokeActivity(jokeString);
+        }
+    }
+
+    public void startJokeActivity(String joke) {
         // Create an intent that starts Joke Activity
         Intent jokeIntent = new Intent(this, JokeActivity.class);
-        // Pass a joke to it from MyJoke class
-        MyJokes myJokes = new MyJokes();
-        String joke = myJokes.getJoke();
+        // Pass a joke to intent
         jokeIntent.putExtra("joke", joke);
         // start the activity
         startActivity(jokeIntent);
-        //Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
     }
 }
