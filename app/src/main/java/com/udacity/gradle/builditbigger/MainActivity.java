@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity{
 
         // Retrieve jokes
         String jokeString;
+        Context context = getBaseContext();
         jokeString = new EndpointsAsyncTask().execute(this).get();
         // In case we have joke
         if (jokeString != null) {

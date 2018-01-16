@@ -35,4 +35,9 @@ dependencies {
     compile project(":jokedisplayer")
     compile project(path: ':backend', configuration: 'android-endpoints')
 
+    // Unit testing dependencies
+    androidTestCompile 'com.android.support:support-annotations:26.1.0'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+
 }
