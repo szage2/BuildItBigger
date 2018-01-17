@@ -11,7 +11,6 @@ import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.example.jokesource.MyJokes;
 
-import javax.inject.Named;
 
 /** An endpoint class we are exposing */
 @Api(
@@ -25,7 +24,7 @@ import javax.inject.Named;
 )
 public class MyEndpoint {
 
-    /** A simple endpoint method that takes a name and says Hi back */
+    /** A simple endpoint method that takes a joke and return it */
     @ApiMethod(name = "getJoke")
     public MyBean getJoke() {
         MyJokes myJoke = new MyJokes();

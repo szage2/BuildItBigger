@@ -12,6 +12,9 @@ import com.example.jokedisplayer.JokeActivity;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * MainActivity get the joke retrieved from GCE server and starts JokeActivity
+ */
 
 public class MainActivity extends AppCompatActivity{
 
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity{
         Intent jokeIntent = new Intent(this, JokeActivity.class);
         // Pass a joke to intent
         jokeIntent.putExtra("joke", joke);
-        // start the activity
+        // Start the activity
         startActivity(jokeIntent);
     }
 }
